@@ -1212,7 +1212,7 @@ class DemoAgent:
                 "auto_accept": json.dumps(auto_accept),
             }
             payload = {
-                "handshake_protocols": ["rfc23"],
+                "handshake_protocols": ["rfc160", "rfc23"],
                 "use_public_did": reuse_connections,
             }
             invi_rec = await self.admin_POST(
