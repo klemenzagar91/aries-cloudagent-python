@@ -148,12 +148,22 @@ class PackWireFormat(BaseWireFormat):
             MessageEncodeError: If the message could not be encoded
 
         """
+        print("drama encode message")
+        print(message_json)
+        print("recipient_keys")
+        print(recipient_keys)
+        print("routing_keys")
+        print(routing_keys)
+        print("sender_key")
+        print(sender_key)
 
         if sender_key and recipient_keys:
             pack = self.pack(
                 session, message_json, recipient_keys, routing_keys, sender_key
             )
             message = await (self.task_queue and self.task_queue.run(pack) or pack)
+            print("drama packed message")
+            print(message)
         else:
             message = message_json
         return message
