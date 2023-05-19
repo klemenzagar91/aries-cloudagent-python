@@ -42,7 +42,7 @@ In your browser, go to the docker playground service [Play with Docker](https://
 ```bash
 git clone https://github.com/klemenzagar91/aries-cloudagent-python.git
 cd aries-cloudagent-python/demo
-LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber --aip 10 --events
+LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber --aip 10 --events --skip-routing
 ```
 
 Now to start Alice's agent. Click the "+Add a new instance" button again to open another terminal session. Run the following commands to start Alice's agent:
