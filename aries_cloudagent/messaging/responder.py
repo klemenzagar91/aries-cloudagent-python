@@ -124,6 +124,8 @@ class BaseResponder(ABC):
             ResponderError: If there is no active connection
 
         """
+        print("Kamino message")
+        print(message)
         outbound = await self.create_outbound(
             message,
             connection_id=connection_id or self.connection_id,
@@ -132,6 +134,8 @@ class BaseResponder(ABC):
             target=target,
             target_list=target_list,
         )
+        print("Kamino Responder")
+        print(self)
         if isinstance(message, BaseMessage):
             msg_type = message._message_type
             msg_id = message._id

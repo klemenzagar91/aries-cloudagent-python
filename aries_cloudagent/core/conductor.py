@@ -639,6 +639,9 @@ class Conductor:
         status: OutboundSendStatus = await self._outbound_message_router(
             profile=profile, outbound=outbound, inbound=inbound
         )
+        print("Kamino outbound message")
+        print(outbound.__repr__)
+        print(outbound.payload)
         await profile.notify(status.topic, outbound)
         return status
 

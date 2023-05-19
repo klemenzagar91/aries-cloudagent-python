@@ -686,6 +686,8 @@ class ConnectionManager(BaseConnectionManager):
             responder = self.profile.inject(BaseResponder)
             await responder.send(request, connection_id=connection.connection_id)
 
+        print("aaaa")
+        print(response)
         return response
 
     async def accept_response(
