@@ -102,6 +102,10 @@ do
     fi
     continue
   ;;
+  --skip-routing)
+      SKIP_ROUTING=1
+      continue
+  ;;
   --help)
     cat <<EOF
 
@@ -208,6 +212,9 @@ if ! [ -z "$GENESIS_URL" ]; then
 fi
 if ! [ -z "$AGENT_ENDPOINT" ]; then
   DOCKER_ENV="${DOCKER_ENV} -e AGENT_ENDPOINT=${AGENT_ENDPOINT}"
+fi
+if ! [ -z "$SKIP_ROUTING" ]; then
+  DOCKER_ENV="${DOCKER_ENV} -e SKIP_ROUTING=1"
 fi
 if ! [ -z "$EVENTS" ]; then
   DOCKER_ENV="${DOCKER_ENV} -e EVENTS=1"

@@ -2,6 +2,7 @@
 
 import json
 import logging
+import os
 from typing import List, Sequence, Tuple, Union
 
 from ..core.profile import ProfileSession
@@ -19,6 +20,7 @@ from .inbound.receipt import MessageReceipt
 from .wire_format import BaseWireFormat
 
 LOGGER = logging.getLogger(__name__)
+SKIP_ROUTING = os.getenv("SKIP_ROUTING")
 
 
 class PackWireFormat(BaseWireFormat):
@@ -148,7 +150,7 @@ class PackWireFormat(BaseWireFormat):
             MessageEncodeError: If the message could not be encoded
 
         """
-        print("drama encode message")
+        print("Kamino json message")
         print(message_json)
         print("recipient_keys")
         print(recipient_keys)
@@ -162,7 +164,7 @@ class PackWireFormat(BaseWireFormat):
                 session, message_json, recipient_keys, routing_keys, sender_key
             )
             message = await (self.task_queue and self.task_queue.run(pack) or pack)
-            print("drama packed message")
+            print("Kamino packed message")
             print(message)
         else:
             message = message_json
@@ -191,7 +193,12 @@ class PackWireFormat(BaseWireFormat):
         except WalletError as e:
             raise WireFormatEncodeError("Message pack failed") from e
 
-        if routing_keys:
+        if SKIP_ROUTING:
+            print("Routing is skipped.")
+            return message
+
+        if routing_keys :
+            print("Routing is not skipped.")
             recip_keys = recipient_keys
             for router_key in routing_keys:
                 message = json.loads(message.decode("utf-8"))
