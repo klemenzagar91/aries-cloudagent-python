@@ -165,7 +165,7 @@ class PackWireFormat(BaseWireFormat):
             )
             message = await (self.task_queue and self.task_queue.run(pack) or pack)
             print("Kamino packed message")
-            print(message)
+            print(message.strip('\n'))
         else:
             message = message_json
         return message
