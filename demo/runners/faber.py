@@ -404,11 +404,10 @@ async def main(args):
 
         faber_schema_name = "degree schema"
         faber_schema_attrs = [
-            "name",
-            "date",
-            "degree",
+            "first_name",
+            "last_name",
+            "document_id",
             "birthdate_dateint",
-            "timestamp",
         ]
         if faber_agent.cred_type == CRED_FORMAT_INDY:
             faber_agent.public_did = True
