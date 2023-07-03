@@ -73,6 +73,8 @@ class AriesAgent(DemoAgent):
                     "--auto-accept-invites",
                     "--auto-accept-requests",
                     "--auto-store-credential",
+                    "--auto-respond-credential-proposal",
+                    "--auto-respond-credential-request",
                 ]
             ),
             **kwargs,
