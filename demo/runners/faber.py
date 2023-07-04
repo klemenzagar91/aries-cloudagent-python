@@ -181,34 +181,34 @@ class FaberAgent(AriesAgent):
         if aip == 10:
             req_attrs = [
                 {
-                    "name": "name",
+                    "name": "first_name",
                     "restrictions": [{"schema_name": "degree schema"}],
                 },
-                {
-                    "name": "date",
-                    "restrictions": [{"schema_name": "degree schema"}],
-                },
+                # {
+                #     "name": "date",
+                #     "restrictions": [{"schema_name": "degree schema"}],
+                # },
             ]
-            if revocation:
-                req_attrs.append(
-                    {
-                        "name": "degree",
-                        "restrictions": [{"schema_name": "degree schema"}],
-                        "non_revoked": {"to": int(time.time() - 1)},
-                    },
-                )
-            else:
-                req_attrs.append(
-                    {
-                        "name": "degree",
-                        "restrictions": [{"schema_name": "degree schema"}],
-                    }
-                )
-            if SELF_ATTESTED:
-                # test self-attested claims
-                req_attrs.append(
-                    {"name": "self_attested_thing"},
-                )
+            # if revocation:
+            #     req_attrs.append(
+            #         {
+            #             "name": "degree",
+            #             "restrictions": [{"schema_name": "degree schema"}],
+            #             "non_revoked": {"to": int(time.time() - 1)},
+            #         },
+            #     )
+            # else:
+            #     req_attrs.append(
+            #         {
+            #             "name": "degree",
+            #             "restrictions": [{"schema_name": "degree schema"}],
+            #         }
+            #     )
+            # if SELF_ATTESTED:
+            #     # test self-attested claims
+            #     req_attrs.append(
+            #         {"name": "self_attested_thing"},
+            #     )
             req_preds = [
                 # test zero-knowledge proofs
                 {
