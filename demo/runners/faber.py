@@ -182,11 +182,15 @@ class FaberAgent(AriesAgent):
             req_attrs = [
                 {
                     "name": "first_name",
-                    "restrictions": [{"schema_name": "degree schema"}],
+                    "restrictions": [{"schema_name": "degree schema"}]
                 },
                 {
                     "name": "last_name",
-                    "restrictions": [{"schema_name": "degree schema"}],
+                    "restrictions": [{"schema_name": "degree schema"}]
+                },
+                {
+                    "name": "document_id",
+                    "restrictions": [{"schema_name": "degree schema"}]
                 }
             ]
             # if revocation:
