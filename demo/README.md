@@ -39,10 +39,12 @@ The Alice/Faber demo is the (in)famous first verifiable credentials demo. Alice,
 
 In your browser, go to the docker playground service [Play with Docker](https://labs.play-with-docker.com/). On the title screen, click "Start". On the next screen, click (in the left menu) "+Add a new instance".  That will start up a terminal in your browser. Run the following commands to start the Faber agent:
 
+P.S. You can add `--skip-routing` parameter to `faber` command.
+
 ```bash
 git clone https://github.com/klemenzagar91/aries-cloudagent-python.git
 cd aries-cloudagent-python/demo
-LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber --aip 10 --events --skip-routing
+LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber --aip 10 --events
 ```
 
 Now to start Alice's agent. Click the "+Add a new instance" button again to open another terminal session. Run the following commands to start Alice's agent:
